@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Dashboard"
+    android:background="#E4D2D2">
+
+    <ScrollView
+        android:layout_weight="3"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:background="@color/maroon">
+
+                <Button
+                    android:id="@+id/btnlogout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="270dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="150dp"
+                    android:backgroundTint="@color/pink"
+                    android:text="Logout"
+                    android:textColor="#000000" />
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="50dp"
+                    android:background="@drawable/radius_oval"
+                    android:src="@drawable/user" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="-60dp"
+                android:layout_marginRight="25dp"
+                android:background="@drawable/radius_box">
+                <ImageView
+                    android:id="@+id/logo"
+                    android:layout_width="50dp"
+                    android:layout_height="500dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginLeft="7dp"
+                    android:src="@drawable/sehat"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="35dp"
+                    android:layout_toEndOf="@+id/logo"
+                    android:layout_toRightOf="@+id/logo"
+                    android:text="@string/title"
+                    android:textColor="@color/maroon"
+                    android:textSize="20dp"
+                    android:textStyle="bold"/>
+            </RelativeLayout>
+
+
+
+            //line 1
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:orientation="horizontal">
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="75dp">
+
+                    <ImageView
+                        android:id="@+id/tap1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/diagnosa" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tap1"
+                        android:layout_centerHorizontal="true"
+                        android:text="Diagnosa"
+                        android:textAlignment="center"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="75dp">
+
+                    <ImageView
+                        android:id="@+id/tap2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/makanan" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tap2"
+                        android:layout_centerHorizontal="true"
+                        android:text="Gizi"
+                        android:textAlignment="center"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+            </LinearLayout>
+
+
+
+            //line 2
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:orientation="horizontal">
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="75dp">
+
+                    <ImageView
+                        android:id="@+id/tap3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/vitamin" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tap3"
+                        android:layout_centerHorizontal="true"
+                        android:text="Imunitas"
+                        android:textAlignment="center"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="75dp">
+                    <ImageView
+                        android:id="@+id/tap4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/olahraga" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tap4"
+                        android:layout_centerHorizontal="true"
+                        android:text="Olahraga"
+                        android:textAlignment="center"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+            </LinearLayout>
+
+
+
+            //line 3
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:orientation="horizontal">
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="75dp">
+
+                    <ImageView
+                        android:id="@+id/tap5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/riwayat" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tap5"
+                        android:layout_centerHorizontal="true"
+                        android:text="Riwayat"
+                        android:textAlignment="center"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="75dp">
+
+                    <ImageView
+                        android:id="@+id/tap6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/tentang" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tap6"
+                        android:layout_centerHorizontal="true"
+                        android:text="Tentang"
+                        android:textAlignment="center"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            //line 4
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:orientation="vertical">
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

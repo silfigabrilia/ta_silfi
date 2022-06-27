@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Tugas Akhir</string>
+    <string name="login_area">Login</string>
+    <string name="dark_app">Sistem Pakar Kebutuhan Gizi Guna Menunjang Imunitas Remaja</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="login">LOGIN</string>
+    <string name="remember_password">Remember Password</string>
+    <string name="forgot_password">Forgot Password</string>
+    <string name="belum_punya_akun">Belum Punya Akun?</string>
+    <string name="registrasi">Registrasi</string>
+    <string name="confirm_password">Ulangi Password</string>
+    <string name="daftar">Daftar</string>
+    <string name="sudah_punya_akun">Sudah Punya Akun ?</string>
+    <string name="title">Mens Sana In Corpore Sano</string>
+    <string name="nama_lengkap">Nama Lengkap</string>
+    <string name="jenis_kelamin">Jenis_Kelamin</string>
+    <string name="tinggi_badan">Tinggi Badan</string>
+    <string name="berat_badan">Berat Badan</string>
+</resources>

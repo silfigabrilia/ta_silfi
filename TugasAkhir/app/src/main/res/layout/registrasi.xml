@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E4D2D2"
+    tools:context=".Registrasi">
+
+    <ImageView
+        android:id="@+id/icon_image"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/user" />
+
+    <TextView
+        android:id="@+id/title_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/icon_image"
+        android:layout_marginTop="10dp"
+        android:gravity="center_horizontal"
+        android:text="@string/registrasi"
+        android:textColor="#220505"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/desc_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title_login"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="@string/dark_app"
+        android:textColor="#27010D"
+        android:textSize="15sp" />
+
+        <RelativeLayout
+            android:id="@+id/form_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/desc_title"
+            android:layout_margin="10dp"
+            android:background="#863D51"
+            android:padding="20dp">
+
+            <EditText
+                android:id="@+id/nama_lengkap"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:hint="@string/nama_lengkap"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                android:minHeight="48dp"
+                android:padding="10dp"
+                android:textColor="#FFFFFF" />
+
+            <EditText
+                android:id="@+id/username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/nama_lengkap"
+                android:layout_marginTop="5dp"
+                android:hint="@string/username"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                android:minHeight="48dp"
+                android:padding="10dp"
+                android:textColor="#FFFFFF" />
+
+            <EditText
+                android:id="@+id/password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/username"
+                android:layout_marginTop="5dp"
+                android:hint="@string/password"
+                android:importantForAutofill="no"
+                android:inputType="textPassword"
+                android:minHeight="48dp"
+                android:padding="10dp"
+                android:textColor="#FFFFFF" />
+
+            <EditText
+                android:id="@+id/jenis_kelamin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/password"
+                android:layout_marginTop="5dp"
+                android:hint="@string/jenis_kelamin"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                android:minHeight="48dp"
+                android:padding="10dp"
+                android:textColor="#FFFFFF" />
+
+            <EditText
+                android:id="@+id/tb"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/jenis_kelamin"
+                android:layout_marginTop="5dp"
+                android:hint="@string/tinggi_badan"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                android:minHeight="48dp"
+                android:padding="10dp"
+                android:textColor="#FFFFFF" />
+
+            <EditText
+                android:id="@+id/bb"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tb"
+                android:layout_marginTop="5dp"
+                android:hint="@string/berat_badan"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                android:minHeight="48dp"
+                android:padding="10dp"
+                android:textColor="#FFFFFF" />
+
+            <Button
+                android:id="@+id/btndaftar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/bb"
+                android:layout_marginTop="10dp"
+                android:background="#E4D2D2"
+                android:gravity="center"
+                android:text="@string/daftar"
+                android:textColor="@android:color/black" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="10dp">
+
+            <TextView
+                android:id="@+id/title_footer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:gravity="center_horizontal"
+                android:text="@string/sudah_punya_akun"
+                android:textSize="15sp" />
+
+            <Button
+                android:id="@+id/btnlogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/title_footer"
+                android:background="#E4D2D2"
+                android:gravity="center"
+                android:text="Login"
+                android:textColor="@android:color/black"
+                android:textSize="15sp" />
+        </RelativeLayout>
+</RelativeLayout>
