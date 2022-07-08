@@ -25,33 +25,75 @@ if (isset($input['hasil']) && isset($input['id_pengguna'])) {
 
     $id_penyakit_hasil = '';
     $nama_penyakit_hasil = '';
-    $sql1 = mysqli_query($con, "select id_penyakit,nama_penyakit from penyakit order by id_penyakit");
-    while ($r = mysqli_fetch_array($sql1)) {
-        $id_penyakit = $r['id_penyakit'];
-        $nama_penyakit = $r['nama_penyakit'];
-        $arr_gejala_penyakit = array();
-        $sql_at = mysqli_query($con, "select id_gejala from rule where id_penyakit='$id_penyakit' order by id_gejala");
-        while ($r_at = mysqli_fetch_array($sql_at)) {
-            $id_gejala = $r_at['id_gejala'];
-            $arr_gejala_penyakit[] = $id_gejala;
-        }
-        if (arrays_are_equal($arr_gejala_terpilih, $arr_gejala_penyakit)) {
-        // if (!array_diff($arr_gejala_terpilih, $arr_gejala_penyakit)) {
-            $id_penyakit_hasil = $id_penyakit;
-            $nama_penyakit_hasil = $nama_penyakit;
+
+    $isDone = false;
+
+    $gejalaTerpilih = '(';
+
+    $separator = ',';
+
+    for ($i = 0; $i < count($arr_gejala_terpilih); $i++) {
+        if (($i + 1) == count($arr_gejala_terpilih))
+            $separator = '';
+
+        $gejalaTerpilih .= $arr_gejala_terpilih[$i] . $separator;
+    }
+
+    $gejalaTerpilih .= ')';
+
+    // $response['status'] = 0;
+    // $response['id_penyakit'] = 1;
+    // $response['nama_penyakit'] = $gejalaTerpilih;
+
+    $sqls = mysqli_query($con, "SELECT id_penyakit, COUNT(id_penyakit) as total FROM `rule` WHERE id_gejala IN $gejalaTerpilih group by id_penyakit order by total desc;");
+    while ($r = mysqli_fetch_array($sqls)) {
+        if (!$isDone) {
+            if ($r['total'] >= 3) {
+                $id_penyakit_hasil = $r['id_penyakit'];
+
+                $sqlpenyakit = mysqli_query($con, "select id_penyakit,nama_penyakit from penyakit where id_penyakit = $id_penyakit_hasil");
+                while ($p = mysqli_fetch_array($sqlpenyakit)) {
+                    $nama_penyakit_hasil = $p['nama_penyakit'];
+                }
+
+                $isDone = true;
+            }
         }
     }
+
+    if ($isDone == false) {
+        $sql1 = mysqli_query($con, "select id_penyakit,nama_penyakit from penyakit order by id_penyakit");
+        while ($r = mysqli_fetch_array($sql1)) {
+            $id_penyakit = $r['id_penyakit'];
+            $nama_penyakit = $r['nama_penyakit'];
+            $arr_gejala_penyakit = array();
+            $sql_at = mysqli_query($con, "select id_gejala from rule where id_penyakit='$id_penyakit' order by id_gejala");
+            while ($r_at = mysqli_fetch_array($sql_at)) {
+                $id_gejala = $r_at['id_gejala'];
+                $arr_gejala_penyakit[] = $id_gejala;
+            }
+
+            if (arrays_are_equal($arr_gejala_terpilih, $arr_gejala_penyakit)) {
+                // if (!array_diff($arr_gejala_terpilih, $arr_gejala_penyakit)) {
+                $id_penyakit_hasil = $id_penyakit;
+                $nama_penyakit_hasil = $nama_penyakit;
+            }
+        }
+    }
+
 
     if ($nama_penyakit_hasil != '') {
         $q = "insert into riwayat(id_pengguna,id_penyakit,tanggal) values ('" . $id_pengguna . "','" . $id_penyakit_hasil . "','" . $tanggal . "')";
         mysqli_query($con, $q);
     } else {
         $nama_penyakit_hasil = 'Tidak ada jenis penyakit yang sesuai dengan gejala terpilih';
+        // $nama_penyakit_hasil = $arr_gejala_terpilih;
         $q = "insert into riwayat(id_pengguna,tanggal) values ('" . $id_pengguna . "','" . $tanggal . "')";
         mysqli_query($con, $q);
     }
 
     $response["status"] = 0;
+    $response["gejala"] = $gejalaTerpilih;
     $response["id_penyakit"] = $id_penyakit_hasil;
     $response["nama_penyakit"] = $nama_penyakit_hasil;
 } else {
