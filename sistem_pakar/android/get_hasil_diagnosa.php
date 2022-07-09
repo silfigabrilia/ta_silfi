@@ -48,7 +48,7 @@ if (isset($input['hasil']) && isset($input['id_pengguna'])) {
     $sqls = mysqli_query($con, "SELECT id_penyakit, COUNT(id_penyakit) as total FROM `rule` WHERE id_gejala IN $gejalaTerpilih group by id_penyakit order by total desc;");
     while ($r = mysqli_fetch_array($sqls)) {
         if (!$isDone) {
-            if ($r['total'] >= 3) {
+            if (count($arr_gejala_terpilih) >= 3 && $r['total'] >= 2) {
                 $id_penyakit_hasil = $r['id_penyakit'];
 
                 $sqlpenyakit = mysqli_query($con, "select id_penyakit,nama_penyakit from penyakit where id_penyakit = $id_penyakit_hasil");
